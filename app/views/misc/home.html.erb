@@ -9,9 +9,73 @@
   <li id="sfo" class="west">San Francisco</li>
 </ul>
 
+<div id="bye">Click me</div>
+<input type="text">
+
+<div>
+  <li id="zebra">zebra</li>
+  <li class="giraffe">giraffe</li>
+</div>
+
+<div id="container">
+  <!-- Many nested divs -->
+  <div>
+    <div>
+      <!-- Many more nested divs and elements -->
+      <p>This is a paragraph.</p>
+      <ul>
+        <li>List item 1</li>
+        <li>List item 2</li>
+        <!-- More list items -->
+      </ul>
+      <!-- More elements -->
+    </div>
+  </div>
+  <!-- More nested divs -->
+</div>
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 <script>
   // Write your JS here.
   // Open the JS console and refresh the page to see the output.
 
-  
+  let items = document.getElementsByTagName("li")
+
+  let chi = document.getElementById("ord");
+  list = document.getElementById("cities_list");
+
+  list.append(chi)
+
+  eastItems =  document.getElementsByClassName("east");
+  for (let i = 0; i < eastItems.length; i++) {
+  eastItems[i].style.border = "thin red solid";
+  }
+
+  let den = document.createElement("li")
+
+  let den_text = document.createTextNode("Denver")
+
+  den.append(den_text)
+
+  den.style.backgroundColor = "orange"
+
+  den.className = "west"
+
+  den.id = "den"
+
+  list.prepend(den)
+
+  let chi = $("#ord");
+
+  <!--  chi.fadeToggle(5000); This will run first, but it will take 5s
+  chi.remove(); This line is executed imidiately after the line above got executed ( even the task is not completed)-->
+
+  chi.fadeToggle(5000, function() {
+  this.remove();
+  });
+
+  $("body").on("click","#bye", function(){
+    $(".west").slideToggle();
+  });
+      $("#container").css("background-color", "lightblue");
 </script>
